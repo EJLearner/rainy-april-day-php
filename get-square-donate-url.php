@@ -9,11 +9,12 @@ $centsAmount = (float)$dollarAmount * 100;
 //Replace your access token and location ID
 $accessToken = getEnv("SQUARE_TOKEN");
 $locationId = getEnv("SQUARE_LOC_ID");
+$host = getEnv("SQUARE_HOST");
 
 // Create and configure a new API client object
 $defaultApiConfig = new \SquareConnect\Configuration();
 $defaultApiConfig->setAccessToken($accessToken);
-$defaultApiConfig->setHost("https://connect.squareupsandbox.com");
+$defaultApiConfig->setHost($host);
 $defaultApiClient = new \SquareConnect\ApiClient($defaultApiConfig);
 $checkoutClient = new SquareConnect\Api\CheckoutApi($defaultApiClient);
 
